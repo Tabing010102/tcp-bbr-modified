@@ -1,4 +1,4 @@
-wget https://github.com/Tabing010102/tcp_nanqinlang-general/raw/master/General/Debian/source/kernel-v4.14/tcp_nanqinlang.c
+wget https://github.com/Tabing010102/tcp-bbr-modified/raw/main/tcp_nanqinlang-debian/tcp_nanqinlang.c
 echo "obj-m:=tcp_nanqinlang.o" > Makefile
 make -C /lib/modules/$(uname -r)/build M=`pwd` modules CC=/usr/bin/gcc
 insmod tcp_nanqinlang.ko
