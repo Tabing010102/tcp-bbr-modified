@@ -1,4 +1,4 @@
-wget https://github.com/Tabing010102/tcp-bbr-modified/raw/main/tcp_tsunami-debian/tcp_tsunami.c
+wget https://github.com/Tabing010102/tcp-bbr-modified/raw/main/tcp_tsunami/tcp_tsunami.c
 echo "obj-m:=tcp_tsunami.o" > Makefile
 make -C /lib/modules/$(uname -r)/build M=`pwd` modules CC=/usr/bin/gcc
 insmod tcp_tsunami.ko
