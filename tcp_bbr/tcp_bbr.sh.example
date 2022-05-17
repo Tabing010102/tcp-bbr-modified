@@ -1,0 +1,10 @@
+wget https://github.com/Tabing010102/tcp-bbr-modified/raw/main/tcp_bbr/tcp_bbr.c
+echo "obj-m:=tcp_bbr.o" > Makefile
+make -C /lib/modules/$(uname -r)/build M=`pwd` modules CC=/usr/bin/gcc
+insmod tcp_bbr.ko
+cp -rf ./tcp_bbr.ko /lib/modules/$(uname -r)/kernel/net/ipv4
+depmod -a
+modprobe tcp_bbr
+echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+sysctl -p
